@@ -1,4 +1,5 @@
 // Complete the equal function below.
+//https://www.hackerrank.com/challenges/equal/problem
     static int equal(int[] arr) {
 
 
