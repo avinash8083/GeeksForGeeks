@@ -1,6 +1,8 @@
 /*package whatever //do not write package name here */
 
 //  https://practice.geeksforgeeks.org/problems/find-optimum-operation/0
+/*package whatever //do not write package name here */
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -21,20 +23,20 @@ class GFG {
 	}   
    static  int minimum(int temp,int count){
                  if(temp==1){
-                       count=count+1;
+                     count=count+1;
                      return count;
                  }
                  if(temp%2==0){
-                       count=count+1;
                        temp=temp/2;
-                       minimum(temp,count);
+                        count=count+1;
+                     //  minimum(temp,count);
                  }
                  else{
                      temp=temp-1;
                        count=count+1;
-                     minimum(temp,count);
+                  //  minimum(temp,count);
                  }
-            return count;             
+            return minimum(temp,count);            
      }   
 	
 }
