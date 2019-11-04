@@ -1,0 +1,50 @@
+
+/// https://practice.geeksforgeeks.org/problems/longest-common-subsequence/0
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+       try{
+		int t = Integer.parseInt(br.readLine());
+ for(int i=0;i<t;i++){
+	    String b[] = br.readLine().trim().split(" ");
+	    int n1 = Integer.parseInt(b[0]);
+	    int n2 = Integer.parseInt(b[1]);
+	    String s1 = br.readLine();
+	    String s2 = br.readLine();
+	    int f[][]=new int[n1+1][n2+1];
+	    for(int x=0;x<n1+1;x++){
+	        f[x][0]=0;
+	    }
+	    for(int y=0;y<n2+1;y++){
+	          f[0][y]=0;
+	    }
+      //.............................................logic start...................
+            for(int j=1;j<n1+1;j++){
+                for(int k=1;k<n2+1;k++){
+                 if(s1.charAt(j-1)==s2.charAt(k-1)){
+                     f[j][k]=f[j-1][k-1]+1;
+                    }  
+                    else{
+                      f[j][k]=Math.max(f[j-1][k],f[j][k-1]);
+                    }
+                }
+            }
+    //.............................................logic end...................        
+      System.out.println(f[n1][n2]);
+ }
+
+   }
+   
+    catch(Exception e){
+     e.printStackTrace();
+ }
+
+	 }
+}
