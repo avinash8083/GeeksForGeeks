@@ -13,7 +13,7 @@ class GFG
 	 try{    
 	 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 	int loop = Integer.parseInt(br.readLine());
-	for(int i=0;i<loop;i++)
+	for(int t=0;t<loop;t++)
     	 {
     	    int m=Integer.parseInt(br.readLine());
     	    int mcap=Integer.parseInt(br.readLine());
@@ -25,23 +25,25 @@ class GFG
 		    w[r] = Integer.parseInt(b[r]);
 		    }
     	 int f[][]=new int[a.length+1][mcap+1];  
-       //................................................logic start .......................
-    	    for(int j=0;j<=a.length;j++)
-    	    {  for(int k=0;k<=mcap;k++){
+	 
+	 //.....................................logic start .......................
+    	    for(int i=0;i<=a.length;i++)
+    	    {  for(int j=0;j<=mcap;j++){
     	        
-            	    if(j==0 || k==0){
-            	     f[j][k]=0;
+            	    if(i==0 || j==0){
+            	     f[i][j]=0;
             	    }
-            	   else if(k<w[j-1])
+            	   else if(j<w[i-1])
             	   {
-            	   f[j][k]=f[j-1][k];
+            	   f[i][j]=f[i-1][j];
             	   }
             	   else{
-            	         f[j][k]=Math.max(f[j-1][k],f[j-1][k-w[j-1]]+p[j-1]);
+            	         f[i][j]=Math.max(f[i-1][j],f[i-1][j-w[i-1]]+p[i-1]);
             	     }
     	      }
     	    }
-          //.................................................logic ends ......................
+	 //............................logic end .................................
+	 
     	    System.out.println(f[a.length][mcap]);
     	 }
 	 }
