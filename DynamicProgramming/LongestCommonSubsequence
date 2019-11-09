@@ -11,33 +11,29 @@ class GFG
 	 {
 BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
        try{
-		int t = Integer.parseInt(br.readLine());
- for(int i=0;i<t;i++){
+		int loop = Integer.parseInt(br.readLine());
+ for(int t=0;t<loop;t++){
 	    String b[] = br.readLine().trim().split(" ");
-	    int n1 = Integer.parseInt(b[0]);
-	    int n2 = Integer.parseInt(b[1]);
+	    int x= Integer.parseInt(b[0]);
+	    int y= Integer.parseInt(b[1]);
 	    String s1 = br.readLine();
 	    String s2 = br.readLine();
-	    int f[][]=new int[n1+1][n2+1];
-	    for(int x=0;x<n1+1;x++){
-	        f[x][0]=0;
-	    }
-	    for(int y=0;y<n2+1;y++){
-	          f[0][y]=0;
-	    }
+	    int f[][]=new int[x+1][y+1];
       //.............................................logic start...................
-            for(int j=1;j<n1+1;j++){
-                for(int k=1;k<n2+1;k++){
-                 if(s1.charAt(j-1)==s2.charAt(k-1)){
-                     f[j][k]=f[j-1][k-1]+1;
+            for(int i=0;i<x+1;i++){
+                for(int j=0;j<y+1;j++){
+			     if(i==0 || j==0)
+					 f[i][j]=0;
+                else if(s1.charAt(i-1)==s2.charAt(j-1)){
+                     f[i][j]=f[i-1][j-1]+1;
                     }  
                     else{
-                      f[j][k]=Math.max(f[j-1][k],f[j][k-1]);
+                      f[i][j]=Math.max(f[i-1][j],f[i][j-1]);
                     }
                 }
             }
     //.............................................logic end...................        
-      System.out.println(f[n1][n2]);
+      System.out.println(f[x][y]);
  }
 
    }
