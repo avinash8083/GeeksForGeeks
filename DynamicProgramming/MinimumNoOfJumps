@@ -1,7 +1,6 @@
 
 //https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps/0
-
-
+//https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/MinJumpToReachEnd.java ///other solution
 
 import java.util.*;
 import java.lang.*;
