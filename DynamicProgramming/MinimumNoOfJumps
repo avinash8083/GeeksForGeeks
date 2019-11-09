@@ -20,7 +20,7 @@ class GFG
                for(int i=0;i<len;i++){
                   a[i]=Integer.parseInt(b[i]);
                }
-               //---------------------------------------------------------
+               //--------------------------logic start-------------------------------
                int i=0,step=0;
               do{
                  int large=0;
@@ -32,7 +32,7 @@ class GFG
               }
               while(i<len);
              System.out.println(step); 
-            //.............................................................. 
+            //............................logic ends .................................. 
        }
 	     }catch(Exception e){
 	         e.printStackTrace();
