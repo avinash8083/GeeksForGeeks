@@ -7,34 +7,37 @@ class GFG
  {
 	public static void main (String[] args)
 	 {
-try{
+        try{
        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
        int loop=Integer.parseInt(br.readLine());
        for(int t=0;t<loop;t++){
-       String a[]=br.readLine().trim().split(" ");       
-       int x=Integer.parseInt(a[0]);   
-       int y=Integer.parseInt(a[1]);
-       String s[]=br.readLine().trim().split(" ");
-       String s1=s[0];
-       String s2=s[1];
-       int arr[][]=new int[x+1][y+1];
-       for(int i=1;i<x+1;i++){
-       for(int j=1;j<y+1;y++){
-           if(i==0 || j==0)
-           arr[i][j]=0;
-          else if(s1.charAt(i-1)==s2.charAt(j-1))
-             arr[i][j]=arr[i-1][j-1]+1;
-          else
-           arr[i][j]=Math.max(arr[i-1][j],arr[i][j-1]);       }
+           String a[]=br.readLine().trim().split(" ");       
+           int x=Integer.parseInt(a[0]);   
+           int y=Integer.parseInt(a[1]);
+           String s[]=br.readLine().trim().split(" ");
+           String s1=s[0];
+           String s2=s[1];
+           int arr[][]=new int[x+1][y+1];
+           for(int i=0;i<x+1;i++){
+               for(int j=0;j<y+1;j++){
+                   if(i==0 || j==0)
+                   arr[i][j]=0;
+                  else if(s1.charAt(i-1)==s2.charAt(j-1))
+                     arr[i][j]=arr[i-1][j-1]+1;
+                  else
+                   arr[i][j]=Math.max(arr[i-1][j],arr[i][j-1]);   
+                   }
+               }
+           if(arr[x][y]==x)
+           System.out.println(y-arr[x][y]);
+           else if(y>x)
+           System.out.println(x-arr[x][y]+Math.abs(x-y));
+           else
+           System.out.println(y-arr[x][y]+Math.abs(x-y));
        }
-       System.out.println(arr[x][y]);
-       }
- 
- 
- 
-}
-catch(Exception e){
-    e.printStackTrace();
-}
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
 	 }
 }
