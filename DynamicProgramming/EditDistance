@@ -1,6 +1,6 @@
 // https://practice.geeksforgeeks.org/problems/edit-distance/0
 
-//................solution using  logest common subsequence...............................................................
+//................solution using  logest common subsequence //incorrect...............................................................
 import java.util.*;
 import java.lang.*;
 import java.io.*;
