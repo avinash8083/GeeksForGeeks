@@ -1,0 +1,48 @@
+// https://practice.geeksforgeeks.org/problems/coin-change/0
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	  try{
+	 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	 int loop=Integer.parseInt(br.readLine());
+	 for(int t=0;t<loop;t++){
+	     int count=Integer.parseInt(br.readLine());
+	     int coins[]=new int[count];
+         String	s[]=br.readLine().trim().split(" ");
+         for(int i=0;i<count;i++)
+            coins[i]=Integer.parseInt(s[i]);
+	     int total=Integer.parseInt(br.readLine());
+          int z=numberOfSolutions(total,coins);
+          System.out.println(z);
+	 }
+	  }catch(Exception e)
+	  {
+	      e.printStackTrace();
+	  }
+	 }
+	 
+	   public static  int numberOfSolutions(int total, int coins[]){
+        int temp[][] = new int[coins.length+1][total+1];
+        for(int i=0; i <= coins.length; i++){
+            temp[i][0] = 1;
+        }
+        for(int i=1; i <= coins.length; i++){
+            for(int j=1; j <= total ; j++){
+                if(j<coins[i-1]){
+                    temp[i][j] = temp[i-1][j];
+                }
+                else{
+                    temp[i][j] = temp[i][j-coins[i-1]] + temp[i-1][j];
+                }
+            }
+        }
+        return temp[coins.length][total];
+	   }
+}
+
