@@ -1,0 +1,50 @@
+//https://practice.geeksforgeeks.org/problems/subset-sum-problem/0
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+try{
+    BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+    int loop=Integer.parseInt(br.readLine());
+    for(int t=0;t<loop;t++)
+    {
+    int count=Integer.parseInt(br.readLine());
+    String s[]=br.readLine().trim().split(" ");
+    int a[]=new int[count];
+    int sum=0;
+    for(int i=0;i<count;i++){
+    a[i]=Integer.parseInt(s[i]);
+    sum=sum+a[i];
+    }
+    boolean b[][]=new boolean[count+1][sum/2+1];
+   //..............logic starts...... 
+        for (int i = 0; i <= a.length; i++) {
+            b[i][0] = true;
+        }
+        for(int i=1;i<=count;i++){
+            for(int j=1;j<=sum/2;j++){
+                if(j<a[i-1])
+                b[i][j]=b[i-1][j];
+                else
+                b[i][j]=b[i-1][j] || b[i-1][j-a[i-1]];
+            }
+        }
+//...................logic ends...............        
+    if(sum%2!=0)    
+    System.out.println("NO");
+    else if(b[count][sum/2]==true)
+    System.out.println("YES");
+    else
+    System.out.println("NO");
+ }
+}catch(Exception e){
+        e.printStackTrace();
+}
+    
+    
+}
+}
