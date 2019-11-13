@@ -47,14 +47,16 @@ class Geeks
    {    
     Dimension[] dimension=new Dimension[height.length*3];
     int index=0;
+    
+    
        for(int i=0;i<height.length;i++){
            dimension[index++]=Dimension.createDimension(height[i],length[i],width[i]);
            dimension[index++]=Dimension.createDimension(length[i],height[i],width[i]);
            dimension[index++]=Dimension.createDimension(width[i],length[i],height[i]);
        }
+       //....................logic starts .......................................
        Arrays.sort(dimension);
        int T[] = new int[height.length*3];
-
         for (int i = 0; i < T.length; i++) {
             T[i] = dimension[i].height;
         }
@@ -66,6 +68,8 @@ class Geeks
                    }
                }
           }
+          
+        //......................logic ends..............................  
         int max = Integer.MIN_VALUE;
         for(int i=0; i < T.length; i++){
             if(T[i] > max){
