@@ -1,44 +1,7 @@
 //https://practice.geeksforgeeks.org/problems/minimum-sum-partition/0
 // https://www.geeksforgeeks.org/partition-a-set-into-two-subsets-such-that-the-difference-of-subset-sums-is-minimum/
 
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-class GFG
- {
-	public static void main (String[] args)
-	 {
-			Scanner scan = new Scanner(System.in);
-		StringBuilder ans = new StringBuilder();
-		
-		int t = scan.nextInt();
-		while(t-->0){
-		    int n = scan.nextInt();
-		    int[] arr = new int[n];
-		    for(int i=0; i<n; i++)
-		        arr[i] = scan.nextInt();
-		        
-	        HashMap<String, Long> map = new HashMap<>();
-	        ans.append(solve(arr, 0, n, 0, 0, map)).append("\n");
-		}
-		System.out.print(ans);
-	 }
-	static long solve(int[] arr, int i, int n, long sum1, long sum2, HashMap<String, Long> map){
-	    String key = sum1 + " " + sum2;
-	    if(map.containsKey(key))
-	        return map.get(key);
-	        
-	    if(i == n)
-	        return Math.abs(sum1-sum2);
-	        
-        long res = Math.min(solve(arr, i+1, n, sum1+arr[i], sum2, map),
-                        solve(arr, i+1, n, sum1, sum2+arr[i], map));
-                        
-        map.put(key, res);
-        return res;
-	}	 
-}
-//.................other type solution .....................................................
+
 import java.lang.*;
 import java.io.*;
 import java.util.*;
@@ -83,4 +46,42 @@ class GFG
 	        
 	    }
 	 }
+}
+............................back tracking solution .........................................................
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+			Scanner scan = new Scanner(System.in);
+		StringBuilder ans = new StringBuilder();
+		
+		int t = scan.nextInt();
+		while(t-->0){
+		    int n = scan.nextInt();
+		    int[] arr = new int[n];
+		    for(int i=0; i<n; i++)
+		        arr[i] = scan.nextInt();
+		        
+	        HashMap<String, Long> map = new HashMap<>();
+	        ans.append(solve(arr, 0, n, 0, 0, map)).append("\n");
+		}
+		System.out.print(ans);
+	 }
+	static long solve(int[] arr, int i, int n, long sum1, long sum2, HashMap<String, Long> map){
+	    String key = sum1 + " " + sum2;
+	    if(map.containsKey(key))
+	        return map.get(key);
+	        
+	    if(i == n)
+	        return Math.abs(sum1-sum2);
+	        
+        long res = Math.min(solve(arr, i+1, n, sum1+arr[i], sum2, map),
+                        solve(arr, i+1, n, sum1, sum2+arr[i], map));
+                        
+        map.put(key, res);
+        return res;
+	}	 
 }
