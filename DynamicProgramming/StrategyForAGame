@@ -1,3 +1,42 @@
 // https://practice.geeksforgeeks.org/problems/optimal-strategy-for-a-game/0
 // https://www.geeksforgeeks.org/optimal-strategy-for-a-game-dp-31/
 //https://www.youtube.com/watch?v=CQO7-3NlLBw
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+try{
+   BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+     int loop=Integer.parseInt(br.readLine());
+     for(int t=0;t<loop;t++){
+     int n=Integer.parseInt(br.readLine());        
+     String s[]=br.readLine().trim().split(" ");
+     int arr[]=new int[n];
+     for(int i=0;i<n;i++)
+       arr[i]=Integer.parseInt(s[i]);
+
+      int table[][] = new int[n][n]; 
+		int gap, i, j, x, y, z; 
+		for (gap = 0; gap < n; ++gap) { 
+			for (i = 0, j = gap; j < n; ++i, ++j) { 
+			    
+				x = ((i + 2) <= j) ? table[i + 2][j] : 0; 
+				y = ((i + 1) <= (j - 1)) ? table[i + 1][j - 1] : 0; 
+				z = (i <= (j - 2)) ? table[i][j - 2] : 0; 
+
+				table[i][j] = Math.max(arr[i] + Math.min(x, y), 
+									arr[j] + Math.min(y, z)); 
+			} 
+		} 
+      System.out.println(table[0][n - 1]);     
+     }  
+     }catch(Exception e){
+        e.printStackTrace();
+    }	 
+	}
+}
