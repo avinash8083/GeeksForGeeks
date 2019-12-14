@@ -22,7 +22,7 @@ BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
           s1[i]=Integer.parseInt(s[i]);
           e1[i]=Integer.parseInt(e[i]);
      }
-     //ordering arrays according to end time 
+     //ordering arrays according to end time ..............................................
     for(int i=0;i<n;i++){
         for(int j=i;j<n;j++){
                 if(e1[i]>e1[j]){
