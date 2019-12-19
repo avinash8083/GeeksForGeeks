@@ -1,0 +1,48 @@
+//https://practice.geeksforgeeks.org/problems/page-faults-in-lru/0
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	Scanner sc = new Scanner(System.in);
+ int loop = sc.nextInt();
+ for(int t=0;t<loop;t++){
+      int size = sc.nextInt();
+      int a[] = new int[size];
+      List<Integer> list=new ArrayList<Integer>();
+       for(int i=0; i<size; i++){
+	       a[i]=sc.nextInt();
+	     }
+	int memory = sc.nextInt();
+	int fault=0;
+	for(int i=0; i<size; i++){
+	     if(list.size()<memory){
+	      if(!list.contains(a[i])){
+	          fault++;
+	          list.add(a[i]);
+	         } 
+	         else{
+	         list.remove(list.indexOf(a[i]));
+	         list.add(a[i]);
+	          }
+	      }
+	      else{
+           if(!list.contains(a[i])){
+	          fault++;
+	          list.remove(0);
+	          list.add(a[i]);
+	         } 
+	         else{
+	         list.remove(list.indexOf(a[i]));
+	         list.add(a[i]);
+	          }
+	      }
+	     }
+	     System.out.println(fault);
+ }
+	 }
+}
