@@ -26,7 +26,8 @@ class GFG
 	          list.add(a[i]);
 	         } 
 	         else{
-	         list.remove(list.indexOf(a[i]));
+			 // if found make it recently visited  
+	         list.remove(list.indexOf(a[i]));  
 	         list.add(a[i]);
 	          }
 	      }
@@ -37,6 +38,7 @@ class GFG
 	          list.add(a[i]);
 	         } 
 	         else{
+			 // if found make it recently visited  
 	         list.remove(list.indexOf(a[i]));
 	         list.add(a[i]);
 	          }
