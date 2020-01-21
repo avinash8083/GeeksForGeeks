@@ -33,16 +33,46 @@ try{
 				q.add(new Ele(i,j)); 
 		//delimiter
 		q.add(new Ele(-1,-1));       
-         
-while(!q.empty()){
-    
-}         
-         
-         
-         
-         
-         
-      System.out.println(arr[0][0]);
+   	    int ans = 0;  
+   	    boolean flag=false;
+   	    
+while(!q.isEmpty()){
+    Ele e=q.poll();
+   
+    if(isDelim(e)){
+    flag=false;
+    if (!q.isEmpty()) 
+			{ 
+				q.add(new Ele(-1,-1));
+				 ans++;
+			} 
+    continue;
+    }
+    if(isValid(e.x+1,e.y,r,c) && !isDelim(e) && arr[e.x+1][e.y]==1){
+     arr[e.x+1][e.y]=2;
+     q.add(new Ele(e.x+1,e.y));
+     flag=true;
+    }
+    if(isValid(e.x-1,e.y,r,c) && !isDelim(e) && arr[e.x-1][e.y]==1){
+     arr[e.x-1][e.y]=2;
+     q.add(new Ele(e.x-1,e.y));
+    flag=true;
+    }
+    if(isValid(e.x,e.y+1,r,c) && !isDelim(e) && arr[e.x][e.y+1]==1){
+     arr[e.x][e.y+1]=2;
+     q.add(new Ele(e.x,e.y+1));
+    flag=true;
+    }
+    if(isValid(e.x,e.y-1,r,c) && !isDelim(e) && arr[e.x][e.y-1]==1){
+     arr[e.x][e.y-1]=2;
+     q.add(new Ele(e.x,e.y-1));
+    flag=true;
+    }
+}      
+ if(checkAll(arr,r,c))   
+  System.out.println(-1);
+  else
+  System.out.println(ans);
  }
  
     
@@ -65,7 +95,7 @@ while(!q.empty()){
  static boolean checkAll(int arr[][],int r,int c) 
 	{ 
 		for (int i=0; i<r; i++) 
-			for (int j=0; j<r; j++) 
+			for (int j=0; j<c; j++) 
 				if (arr[i][j] == 1) 
 					return true; 
 		return false; 
