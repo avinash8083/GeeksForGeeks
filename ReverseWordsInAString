@@ -1,0 +1,27 @@
+//https://practice.geeksforgeeks.org/problems/reverse-words-in-a-given-string/0
+//https://www.geeksforgeeks.org/reverse-words-in-a-given-string/
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	try{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));	   
+	 int loop=Integer.parseInt(br.readLine());
+	 for(int t=0;t<loop;t++){
+	 String s[]=br.readLine().trim().split("\\.");
+	 String ans="";
+	 for(int i=s.length-1;i>=0;i--){
+	     ans+=s[i]+".";
+	 }
+	 System.out.println(ans.substring(0,ans.length()-1));
+	 }
+	}catch(Exception e){
+	    e.printStackTrace();
+	}
+	
+	 }
+}
