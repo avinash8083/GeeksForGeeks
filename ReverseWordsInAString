@@ -1,5 +1,11 @@
 //https://practice.geeksforgeeks.org/problems/reverse-words-in-a-given-string/0
 //https://www.geeksforgeeks.org/reverse-words-in-a-given-string/
+/*
+Initially, reverse the individual words of the given string one by one, for the above example, after reversing individual words the
+string should be “i ekil siht margorp yrev hcum”.
+Reverse the whole string from start to end to get the desired output “much very program this like i” in the above example.
+
+*/
 
 import java.util.*;
 import java.lang.*;
