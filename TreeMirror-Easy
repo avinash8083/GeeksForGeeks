@@ -1,0 +1,31 @@
+// https://practice.geeksforgeeks.org/problems/mirror-tree/1
+
+class Tree
+{
+    void mirror(Node node)
+    {
+        
+    Node temp=null;
+    if(node==null)
+    return;
+    if(node.left==null && node.right==null)
+    return; 
+    
+    
+    if(node.left!=null && node.right==null)  {  
+     node.right=node.left;
+     node.left=null;
+    }
+   else  if(node.right!=null && node.left==null)  {  
+     node.left=node.right;
+     node.right=null;
+    }
+	else{
+	  temp=node.left;
+	  node.left=node.right;
+	  node.right=temp;
+	}
+	mirror(node.left);
+	mirror(node.right);
+    }
+}
