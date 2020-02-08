@@ -1,4 +1,4 @@
-//https://practice.geeksforgeeks.org/viewSol.php?subId=9ef0bff4d4eb49232d336ffa6315cb21&pid=700099&user=ParagKaundil
+//https://practice.geeksforgeeks.org/problems/detect-loop-in-linked-list/1
 
 class Loop{
     int detectLoop(Node node) {
