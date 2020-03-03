@@ -1,0 +1,59 @@
+//https://practice.geeksforgeeks.org/problems/inversion-of-array/0
+//https://www.geeksforgeeks.org/counting-inversions/
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	{
+ try{
+  BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	int loop=Integer.parseInt(br.readLine());
+	for(int t=0;t<loop;t++){
+	  int n=Integer.parseInt(br.readLine());
+	  String s[]=br.readLine().trim().split(" ");
+	  int arr[]=new int[n];
+	  for(int i=0;i<n;i++)
+	  arr[i]=Integer.parseInt(s[i]);
+	 long count=mergeSortCount(arr,0,n-1);
+	 System.out.println(count); 
+	}
+	}
+	catch(Exception e){
+	e.printStackTrace();
+	}
+	}
+	
+	public static long mergeSortCount(int arr[],int l,int r){
+
+	   long  count=0;
+	    if(l<r){
+	    int m=(r+l)/2;
+	    count+=mergeSortCount(arr,l,m);
+	    count+=mergeSortCount(arr,m+1,r);
+	    count+=mergeCount(arr,l,m,r);
+	    }
+	    return count;
+	}
+	public static int mergeCount(int arr[],int l,int m,int r){
+	    int left[]=Arrays.copyOfRange(arr,l,m+1);
+	   int right[]=Arrays.copyOfRange(arr,m+1,r+1);
+	    int i=0,j=0,k=l,swap=0;;
+	    while(i<left.length && j<right.length){
+	       if(left[i]<=right[j])
+	       arr[k++]=left[i++];
+	       else{
+	       arr[k++]=right[j++];
+	       swap+=(m+1)-(l+i);
+	       }
+	    }
+		while (i < left.length) 
+			arr[k++] = left[i++]; 
+		while (j < right.length) 
+			arr[k++] = right[j++];
+	return swap;
+	}
+
+}
