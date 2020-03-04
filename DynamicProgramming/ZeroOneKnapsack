@@ -1,7 +1,7 @@
 //https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem/0
 
 // no need to sort weight array 
-
+// by default a[i][j] =0 by java defaut int value
 
 import java.util.*;
 import java.lang.*;
@@ -27,13 +27,10 @@ class GFG
     	 int f[][]=new int[a.length+1][mcap+1];  
 	 
 	 //.....................................logic start .......................
-    	    for(int i=0;i<=a.length;i++)
-    	    {  for(int j=0;j<=mcap;j++){
+    	    for(int i=1;i<=a.length;i++)
+    	    {  for(int j=1;j<=mcap;j++){
     	        
-            	    if(i==0 || j==0){
-            	     f[i][j]=0;
-            	    }
-            	   else if(j<w[i-1])
+                 if(w[i-1]>j)
             	   {
             	   f[i][j]=f[i-1][j];
             	   }
