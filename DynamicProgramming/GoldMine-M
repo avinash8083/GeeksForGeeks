@@ -26,26 +26,19 @@ try{BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         }
     }
     int goldmax[][]=new int[m][n];
+    for(int col=0;col<n;col++){
     for(int row=0;row<m;row++){
-        for(int col=0;col<n;col++){
            int lefttop=(row==0 || col==0)? 0:goldmax[row-1][col-1]; 
            int left=(col==0)? 0:goldmax[row][col-1]; 
            int leftdown=(row==m-1 || col==0)? 0:goldmax[row+1][col-1];
-           System.out.println(leftdown);
         goldmax[row][col]=gold[row][col]+Math.max(left,Math.max(lefttop,leftdown));
         }}
-/*           for (int[] row : goldmax) {
-            System.out.println(Arrays.toString(row)); 
-    } */
        int result=goldmax[0][n-1];
       for(int row=1;row<m;row++){
       result=Math.max(result,goldmax[row][n-1]);
       }
     System.out.println(result);
-    }
-
-
-    
+    }    
 }
 catch(Exception e){
     e.printStackTrace();
