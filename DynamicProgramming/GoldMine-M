@@ -1,0 +1,54 @@
+//https://practice.geeksforgeeks.org/problems/gold-mine-problem/0
+//https://www.youtube.com/watch?v=VzmCv-P5tzg
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+{
+	public static void main (String[] args)
+{
+try{BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+    int loop=Integer.parseInt(br.readLine());
+    for(int t=0;t<loop;t++)
+    {
+    String[] s=br.readLine().trim().split(" ");
+    int m=Integer.parseInt(s[0]);
+    int n=Integer.parseInt(s[1]);
+    String[] u=br.readLine().trim().split(" ");
+    
+    int gold[][]=new int[m][n];
+    
+    int k=0;
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+          gold[i][j]=Integer.parseInt(u[k++]); 
+        }
+    }
+    int goldmax[][]=new int[m][n];
+    for(int row=0;row<m;row++){
+        for(int col=0;col<n;col++){
+           int lefttop=(row==0 || col==0)? 0:goldmax[row-1][col-1]; 
+           int left=(col==0)? 0:goldmax[row][col-1]; 
+           int leftdown=(row==m-1 || col==0)? 0:goldmax[row+1][col-1];
+           System.out.println(leftdown);
+        goldmax[row][col]=gold[row][col]+Math.max(left,Math.max(lefttop,leftdown));
+        }}
+/*           for (int[] row : goldmax) {
+            System.out.println(Arrays.toString(row)); 
+    } */
+       int result=goldmax[0][n-1];
+      for(int row=1;row<m;row++){
+      result=Math.max(result,goldmax[row][n-1]);
+      }
+    System.out.println(result);
+    }
+
+
+    
+}
+catch(Exception e){
+    e.printStackTrace();
+}
+}
+}
