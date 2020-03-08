@@ -1,6 +1,6 @@
-https://practice.geeksforgeeks.org/problems/activity-selection/0
-
-
+//https://practice.geeksforgeeks.org/problems/activity-selection/0
+//https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/
+// sort according to end time 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
