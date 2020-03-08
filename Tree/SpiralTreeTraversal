@@ -3,7 +3,6 @@
 
 class Spiral
 { 
-    Node root=null;
       void printSpiral(Node node) 
       { 
           int h=findHeight(node);
