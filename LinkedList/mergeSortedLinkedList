@@ -1,0 +1,33 @@
+//https://practice.geeksforgeeks.org/problems/merge-two-sorted-linked-lists/1
+//https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
+
+class LinkedList
+{
+    Node sortedMerge(Node headA, Node headB) {
+        Node real=new Node(0);
+        Node temp=real;
+        while(headA!=null && headB!=null){
+         if(headA.data<headB.data){
+             real.next=headA;
+             headA=headA.next;
+             real=real.next;
+         }
+         else{
+             real.next=headB;
+             headB=headB.next;
+             real=real.next;
+         }
+       }
+       if(headA!=null){
+           real.next=headA;
+           real=real.next;
+       }
+       if(headB!=null){
+           real.next=headB;
+           real=real.next;
+       }
+                
+
+    return temp.next;     
+    } 
+}
