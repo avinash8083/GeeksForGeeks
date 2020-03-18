@@ -1,0 +1,37 @@
+//https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1
+//https://www.geeksforgeeks.org/print-left-view-binary-tree/
+
+
+class Tree
+{
+    Boolean check=false;
+    
+    void leftView(Node root)
+    { if(root==null)
+      return;
+      int h=height(root);
+      for(int i=1;i<=h;i++){
+      check=false;
+      printLevel(root,i);
+      }
+    }
+    int height(Node node){
+    if(node==null)
+    return 0;
+    else
+    return Math.max(height(node.left),height(node.right))+1;
+    }
+   void printLevel(Node node,int h){
+       if(node==null)
+       return;
+     if(h==1){
+         if(!check)
+      System.out.print(node.data+" ");
+            check=true;
+      }
+      else if (h > 1){ 
+      printLevel(node.left,h-1);
+      printLevel(node.right,h-1);
+      }
+    }
+}
