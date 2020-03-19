@@ -1,0 +1,29 @@
+// https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1
+//solution same as level order 
+
+class Tree
+{
+	public void reversePrint(Node node) 
+        {
+         int h=height(node);
+         for(int i=h;i>0;i--){
+             reverse(node,1,i);
+         }
+        }
+     void reverse(Node node,int i,int h){
+         if(node==null)
+         return ;
+        if(i==h)
+        System.out.print(node.data+" ");
+        else{
+            reverse(node.left,i+1,h);
+            reverse(node.right,i+1,h);
+         }
+      }   
+        
+     int height(Node node){
+         if(node==null)
+         return 0;
+      return Math.max(height(node.left),height(node.right))+1;
+     }  
+}  
