@@ -1,0 +1,34 @@
+//https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1
+//https://youtu.be/LtGnA5L6LIk
+//https://www.geeksforgeeks.org/the-celebrity-problem/
+
+class Celebrity
+{
+    // The task is to complete this function
+    int getId(int M[][], int n)
+    {
+        Stack<Integer> s=new Stack<Integer>();
+        for(int i=0;i<n;i++){
+          s.push(i);
+        }
+        while(s.size()>1){
+         int a=s.pop();
+         int b=s.pop();
+         if(knows(a,b,M))
+         s.push(b);
+         else
+         s.push(a);
+         }
+         int temp=s.pop();
+         for(int j=0;j<n;j++){
+          if(j!=temp && (knows(temp,j,M) || !knows(j,temp,M)))
+          return -1;
+         }
+        return temp;
+    }
+    boolean knows(int i,int j,int M[][]){
+        if(M[i][j]==1)
+        return true;
+      return false;
+    }
+}
