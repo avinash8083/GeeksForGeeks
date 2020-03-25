@@ -1,0 +1,42 @@
+//https://practice.geeksforgeeks.org/problems/longest-consecutive-subsequence/0
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+try{
+ BufferedReader br=new BufferedReader(new InputStreamReader(System.in));    
+ int loop=Integer.parseInt(br.readLine());
+ for(int t=0;t<loop;t++){
+     int n=Integer.parseInt(br.readLine());
+     String s[]=br.readLine().trim().split(" ");
+     int a[]=new int[n];
+     for(int i=0;i<n;i++){
+         a[i]=Integer.parseInt(s[i]);
+     }
+     Arrays.sort(a);
+     int count=0,temp=1;
+     for(int i=1;i<n;i++){
+          if(a[i]==a[i-1]+1)
+         { 
+             ++temp;
+         }
+         else if(a[i]==a[i-1])
+         continue;
+          else{
+          count=Math.max(count,temp);
+          temp=1;
+          }
+     }
+   count=Math.max(count,temp);
+     System.out.println(count);
+ }
+}catch(Exception e){
+   e.printStackTrace(); 
+     }	 
+	 }
+}
