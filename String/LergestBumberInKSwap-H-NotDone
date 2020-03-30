@@ -1,0 +1,42 @@
+//https://practice.geeksforgeeks.org/problems/largest-number-in-k-swaps/0
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {  static String max="0";
+	public static void main (String[] args){
+	 Scanner sc = new Scanner(System.in); 
+ int loop=sc.nextInt();
+
+ for(int t=0;t<loop;t++){
+    long k=sc.nextLong();
+  String s=sc.next();
+    char a[]=s.toCharArray();
+  int n=s.length();
+  
+ for(int i=0;i<n-1;i++){
+     if(k>0){
+     int index=i;
+     int max=a[i];
+     for(int j=i+1;j<n;j++){
+         if(a[i]<a[j] && max<a[j]){
+        max=a[j];
+        index=j;
+         }
+     }
+     if(a[i]<(char)max){
+        k--;
+        char temp=a[i];
+        a[i]=(char)max;
+        a[index]=temp;
+     }
+     
+ }
+ }
+
+	System.out.println(new String(a));
+	 }
+ }
+
+}
