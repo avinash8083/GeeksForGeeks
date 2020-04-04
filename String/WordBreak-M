@@ -1,7 +1,6 @@
 //https://practice.geeksforgeeks.org/problems/word-break/0
 //https://www.youtube.com/watch?v=WepWFGxiwRs
 
-
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -31,11 +30,11 @@ class GFG
                  a[i][j]=1;
                  continue;
                  }
-                 for(int k=i+1;k<j;k++){
-                     if(a[i][k-1] ==1 && a[k][j] == 1)
+                 for(int k=i+1;k<=j;k++){               //k<=j is needed here as in h,q,word=hhqhq
+                     if(a[i][k-1] ==1 && a[k][j] == 1){
                          a[i][j]=1;
                          break;
-                     }
+                     }}
                  }
              }
            System.out.println(a[0][len-1]);
