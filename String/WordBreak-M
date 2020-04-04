@@ -1,0 +1,49 @@
+//https://practice.geeksforgeeks.org/problems/word-break/0
+//https://www.youtube.com/watch?v=WepWFGxiwRs
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	try{
+	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	int loop=Integer.parseInt(br.readLine());
+    	for(int t=0;t<loop;t++){
+    	    boolean flag=true;
+    	  int n=Integer.parseInt(br.readLine()); 
+    	   List<String> list=new ArrayList<>();
+    	   String s[]=br.readLine().trim().split(" ");
+    	   for(int i=0;i<n;i++){
+    	      list.add(s[i]); 
+    	   }
+    	   String word=br.readLine();
+    	   int len=word.length();
+          int a[][]=new int[len][len];
+         for(int l=0;l<len;l++){
+             for(int i=0;i<len-l;i++){
+              int   j=i+l;
+                 String str=word.substring(i,j+1);
+                 if(list.contains(str)){
+                 a[i][j]=1;
+                 continue;
+                 }
+                 for(int k=i+1;k<j;k++){
+                     if(a[i][k-1] ==1 && a[k][j] == 1)
+                         a[i][j]=1;
+                         break;
+                     }
+                 }
+             }
+           System.out.println(a[0][len-1]);
+         }
+  //System.out.println(Arrays.toString(list.toArray()));
+	}catch(Exception e)
+	{
+	    e.printStackTrace();
+	}
+	 }
+}
