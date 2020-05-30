@@ -29,10 +29,8 @@ class GFG
          //logic starts.........................................      
         for(int i=1; i < arr.length; i++){
             for(int j=0; j < i; j++){
-                if(arr[i] > arr[j]){
-                    if(T[j] + 1 > T[i]){
+                if(arr[i] > arr[j] && T[j] + 1 > T[i]){
                         T[i] = T[j] + 1;
-                    }
                 }
             }
         }
