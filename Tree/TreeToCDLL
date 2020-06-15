@@ -1,0 +1,71 @@
+// https://practice.geeksforgeeks.org/problems/binary-tree-to-cdll/1
+
+
+
+class Tree
+{   
+  public    ArrayList<Integer> list=new ArrayList<Integer>();
+    
+    Node bTreeToClist(Node root)
+    {   if(root==null){
+          return null;
+        }
+        bTreeToClist(root.left);
+        if(root.data!=0)
+        list.add(root.data);
+        bTreeToClist(root.right);
+       // System.out.println(list);
+        return dlist(list);
+        //return new Node(5);
+    }
+    
+    Node  dlist(ArrayList<Integer>  list){
+     Node head=new Node((int)list.get(0));
+     Node tail=head;
+      for(int i=1;i<list.size();i++){
+          Node node=new Node(list.get(i));
+          node.left=tail;
+          tail.right=node;
+          node.right=null;
+          tail=node;
+      }
+      tail.right=head;
+      head.left=tail;
+      return head;
+    }
+}
+
+//...........................................second method ............................................................................
+
+class GfG
+{ 
+    Node head;
+    Node tail;
+    Node bTreeToClist(Node root)
+    {
+        //your code here
+        bToDLL(root);
+        head.left=tail;
+        tail.right=head;
+        return head;
+    }
+    void bToDLL(Node root)
+    {
+	//  Your code here	
+	    if(root==null){
+	        return;
+	    }
+	    bToDLL(root.left);
+	    if(head==null){
+	        head=tail=root;
+	    }else{
+	        tail.right=root;
+	        root.left=tail;
+	        tail=root;
+	        tail.right=null;
+	    }
+	    `(root.right);
+	    return;
+    }
+    
+}
