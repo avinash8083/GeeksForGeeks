@@ -1,0 +1,35 @@
+//https://practice.geeksforgeeks.org/problems/column-name-from-a-given-column-number/0
+//https://practice.geeksforgeeks.org/editorial.php?pid=430
+
+
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	 try{
+	 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	     int loop=Integer.parseInt(br.readLine());
+	     for(int i=0;i<loop;i++){
+	     int k=Integer.parseInt(br.readLine());
+	     StringBuilder sb=new StringBuilder();
+	    while(k>0){
+	        int rem=k%26;
+	        if(rem==0)
+          {
+	          sb.append('Z');
+	          k=k/26-1; 
+	          }
+	        else
+          { 
+	         sb.append((char)((rem - 1) + 'A'));
+	         k=k/26; 
+	         }
+	    }
+	    System.out.println(sb.reverse());
+	     }
+	 }catch(Exception e){
+	     e.printStackTrace();
+	 }  
+	 
+	 }
+}
